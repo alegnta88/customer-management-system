@@ -14,9 +14,9 @@ QUESTION 2
 
 2.1 htop </br>
 2.2 grep Exception | /var/log/app/sys.log </br>
-2.3 sudo pkill -f legacy-app
-2.4 //
-2.5 find /var/log/app -type f -mtime +30
+2.3 sudo pkill -f legacy-app </br>
+2.4 // </br>
+2.5 find /var/log/app -type f -mtime +30<br>
 
 QUESTION 3
 //
@@ -25,7 +25,7 @@ QUESTION 3
 QUESTION 4
 
 1. Troubleshootig steps for slow database:
-- On the code level the response should be minimized. only important responses should be returned from the database
+- On the code level the response should be minimized. only important responses should be returned from the database 
 - applying pagination so that we don't have to respond all the customers list at once
 - Scaling up the database using methods like database replicationm, sharding and caching frequently accessed data
 
