@@ -1,4 +1,7 @@
 import pool from "../config/db.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const getCustomers = (req, res) => {
     pool.query('SELECT * FROM customers', (err, result) => {
@@ -12,7 +15,9 @@ export const getCustomers = (req, res) => {
 
 export const createCustomer = (req, res) => {
     const { name, email } = req.body;
+    console.log(name, email);
     pool.query('INSERT INTO customers (name, email) VALUES ($1, $2) RETURNING id', [name, email], (err, result) => {
+        console.log(err, result);
         if (err) {
             res.status(500).json({message: 'Internal server error'});
         } else {

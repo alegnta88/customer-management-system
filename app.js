@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 app.use('/api/auth', UserRouter);
 app.use('/api', CustomerRouter);
 
-
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

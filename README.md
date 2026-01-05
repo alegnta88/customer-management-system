@@ -19,6 +19,7 @@ QUESTION 2
 2.5 find /var/log/app -type f -mtime +30
 
 QUESTION 3
+//
 
 
 QUESTION 4

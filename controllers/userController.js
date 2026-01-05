@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import pool from '../config/db.js';
-import { createToken } from '../utils/jwt.js';
 
 export const userRegister = (req, res) => {
     const {username, password} = req.body;
