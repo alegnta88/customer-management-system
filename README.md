@@ -12,8 +12,8 @@ DEPLOY: On this stage the docker container will be running on the live server on
 
 QUESTION 2
 
-2.1 htop 
-2.2 grep Exception | /var/log/app/sys.log
+2.1 htop </br>
+2.2 grep Exception | /var/log/app/sys.log </br>
 2.3 sudo pkill -f legacy-app
 2.4 //
 2.5 find /var/log/app -type f -mtime +30
