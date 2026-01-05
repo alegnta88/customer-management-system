@@ -15,15 +15,29 @@ export const getCustomers = (req, res) => {
 
 export const createCustomer = (req, res) => {
     const { name, email } = req.body;
-    console.log(name, email);
-    pool.query('INSERT INTO customers (name, email) VALUES ($1, $2) RETURNING id', [name, email], (err, result) => {
-        console.log(err, result);
-        if (err) {
-            res.status(500).json({message: 'Internal server error'});
-        } else {
-            res.status(201).json({message: 'Customer created successfully', customerId: result.rows[0].id});
+    const userId = req.user.id; 
+
+    if (!name || !email) {
+        return res.status(400).json({ message: "Name and email are required" });
+    }
+
+    pool.query(
+        `INSERT INTO customers (user_id, name, email)
+         VALUES ($1, $2, $3)
+         RETURNING id`,
+        [userId, name, email],
+        (err, result) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ message: "Internal server error" });
+            }
+
+            res.status(201).json({
+                message: "Customer created successfully",
+                customerId: result.rows[0].id
+            });
         }
-    });
+    );
 };
 
 export const getCustomerById = (req, res) => {
