@@ -6,7 +6,7 @@ PART 2 ANSWERS
 
 BUILD: On this stage the Pipeline bulids the docker image of the source code using the Dockerfile.
 ANALYZE: On this stage the code passes some testing stages for vulnerbility test and code level testing using trivy or other devsecops tools
-PACKAGE: Here the code is shipped to the server for going to be live
+PACKAGE: Add system packages like maven, npm or yarn based on the code type
 DEPLOY: on this stage the docker container will be running on the live server on the host
 
 
