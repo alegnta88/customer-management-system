@@ -35,3 +35,27 @@ export const getCustomerById = (req, res) => {
         }
     });
 };
+
+export const updateCustomer = (req, res) => {
+    const { id } = req.params;
+    const { name, email } = req.body;
+    pool.query('UPDATE customers SET name = $1, email = $2 WHERE id = $3', [name, email, id], (err, result) => {
+        if (err) {
+            res.status(500).json({message: 'Internal server error'});
+        } else {
+            res.status(200).json({message: 'Customer updated successfully'});
+        }
+    });
+};
+
+export const deleteCustomer = (req, res) => {
+    const { id } = req.params;
+    pool.query('DELETE FROM customers WHERE id = $1', [id], (err, result) => {
+        if (err) {
+            res.status(500).json({message: 'Internal server error'});
+        } else {
+            res.status(200).json({message: 'Customer deleted successfully'});
+        }
+    });
+};
+

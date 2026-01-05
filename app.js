@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000;
 app.use(bodyParser.json());
 
 app.use('/api/auth', UserRouter);
-console.log('User routes loaded');
+app.use('/api', CustomerRouter);
 
 
 app.listen(port, () => {

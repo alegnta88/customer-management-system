@@ -10,6 +10,8 @@ export const userRegister = (req, res) => {
     }
 
     const hashedPassword = bcrypt.hashSync(password, 10);
+    //new.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id', [username, hashedPassword], (err, result) => {
+//query.changes
 
     pool.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id', [username, hashedPassword], (err, result) => {
         if (err) {
